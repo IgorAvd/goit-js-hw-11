@@ -100,7 +100,7 @@ function createMarkup(arr) {
       <a href="${largeImageURL}"><img src="${webformatURL}" alt="${tags}" loading="lazy" /></a>
       <div class="info">
         <p class="info-item">
-          <b>Likes ${likes}</b>
+          <b>Likes  ${likes}</b>
         </p>
         <p class="info-item">
           <b>Views ${views}</b>
