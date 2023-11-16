@@ -1,6 +1,8 @@
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  /* display: flex;
+  flex-wrap: wrap; */
   gap: 20px;   
 }
 
@@ -28,14 +30,13 @@
   
 }
 
-.search-form button{
-  
+.search-form button{  
   padding-left: 5px;
   width: 150px;
   height: 34px;
   border-color: green;
   border-radius: 4px;  
-  
+  cursor: pointer;
 }
 
 .info {
@@ -59,7 +60,31 @@
   }
 
 
+@media screen and (max-width: 1250px) {
+  .gallery {  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+ .info{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 
+ }
+ .gallery img{
+  width: 370px;
+ }
 
+ .info-item{
+  margin: 5px;
+ } 
+}
+
+@media screen and (max-width: 380px) {  
+ 
+ .gallery img{
+  width: 100%;
+ }
+}
 
 

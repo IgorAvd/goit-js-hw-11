@@ -2,6 +2,7 @@ import { fetchImg } from './pixabay-api';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Report } from 'notiflix/build/notiflix-report-aio';
 import 'notiflix/dist/notiflix-3.2.6.min.css';
 
 const formEl = document.querySelector('.search-form');
@@ -53,6 +54,7 @@ formEl.addEventListener('submit', onSubmitForm);
 
 async function onSubmitForm(e) {
   e.preventDefault();
+  observer.unobserve(target);
   clearGallery();
   currentPage = 1;
   commonSumm = 0;
@@ -66,7 +68,8 @@ async function onSubmitForm(e) {
       observer.observe(target);
 
       if (res.data.hits.length === 0) {
-        Notify.failure(
+        Report.failure(
+          '',
           'Sorry, there are no images matching your search query. Please try again.'
         );
       } else {
@@ -79,7 +82,8 @@ async function onSubmitForm(e) {
       Notify.failure(error.message);
     }
   } else {
-    Notify.failure(
+    Report.failure(
+      '',
       'Sorry, there are no images matching your search query. Please try again.'
     );
   }
